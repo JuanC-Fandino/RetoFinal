@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Firebase CRUD</title>
+
+    <!-- BOOTSWATCH -->
+    <link
+            rel="stylesheet"
+            href="https://bootswatch.com/5/yeti/bootstrap.min.css"
+    />
+</head>
+
+<body class="bg-dark">
+<!-- ADD TASK -->
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="h4">Añadir Estudiante</h1>
+
+                    <form id="estudiantes-form">
+                        <label for="student-name">Nombre:</label>
+                        <input
+                                type="text"
+                                id="student-name"
+                                class="form-control mb-3"
+                                class="My First Title"
+                                placeholder="Juan"
+                                autofocus
+                        />
+
+                        <label for="student-last-name">Apellido:</label>
+                        <input
+                                type="text"
+                                id="student-last-name"
+                                class="form-control mb-3"
+                                class="My First Title"
+                                placeholder="Perez"
+                                autofocus
+                        />
+
+                        <button class="btn btn-primary" id="btn-students-form">Guardar</button>
+                    </form>
+                </div>
+            </div>
+            <div id="students-container"></div>
+
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="h4">Añadir Clase</h1>
+
+                    <form id="clases-form">
+                        <label for="clases-title">Título:</label>
+                        <input
+                                type="text"
+                                id="clases-title"
+                                class="form-control mb-3"
+                                class="My First Title"
+                                placeholder="Título de la clase"
+                                autofocus
+                        />
+
+                        <label for="clases-description">Descripción:</label>
+                        <textarea
+                                id="clases-description"
+                                rows="3"
+                                class="form-control mb-3"
+                                placeholder="Descripción de la clase"
+                        ></textarea>
+
+
+                        <button class="btn btn-primary" id="btn-clases-form">Guardar</button>
+                    </form>
+                </div>
+            </div>
+            <div id="classes-container"></div>
+        </div>
+
+    </div>
+</div>
+
+<script src="./index.js" type="module"></script>
+</body>
+</html>
