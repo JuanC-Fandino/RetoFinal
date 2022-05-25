@@ -64,8 +64,3 @@ export const onGetEnrollments = (callback) =>
     onSnapshot(collection(db, "Matriculas"), callback);
 
 export const deleteEnrollment = (id) => deleteDoc(doc(db, "Matriculas", id));
-
-export const getEnrollment = (id) => getDoc(doc(db, "Matriculas", id));
-
-export const updateEnrollment = (id, newFields) =>
-    updateDoc(doc(db, "Matriculas", id), newFields);
