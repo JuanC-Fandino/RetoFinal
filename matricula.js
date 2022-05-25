@@ -11,13 +11,20 @@ import {
 const matriculaForm = document.getElementById("matricula-form");
 const studentsDropdown = document.getElementById("students-dropdown");
 const classesDropdown = document.getElementById("classes-dropdown");
-
 const enrollmentContainer = document.getElementById("enrollment-container");
+const formButton = document.getElementById("btn-matricula-form");
 
 
 window.addEventListener("DOMContentLoaded", async (e) => {
 
     onGetClasses((querySnapshot) => {
+        
+        if (querySnapshot.empty) {
+            classesDropdown.disabled = true;
+            classesDropdown.innerHTML = `<option value="">No hay clases</option>`;
+            formButton.disabled = true;
+            return;
+        }
 
         querySnapshot.forEach((doc) => {
             const clase = doc.data();
@@ -30,6 +37,12 @@ window.addEventListener("DOMContentLoaded", async (e) => {
     });
 
     onGetStudents((querySnapshot) => {
+        if (querySnapshot.empty) {
+            studentsDropdown.disabled = true;
+            studentsDropdown.innerHTML = `<option value="">No hay estudiantes</option>`;
+            formButton.disabled = true;
+            return;
+        }
 
         querySnapshot.forEach((doc) => {
             const student = doc.data();
@@ -59,11 +72,8 @@ window.addEventListener("DOMContentLoaded", async (e) => {
                 </div>
             `;
                     const btnsDelete = enrollmentContainer.querySelectorAll(".btn-delete");
-                    console.log(btnsDelete);
                     btnsDelete.forEach((btn) =>
                         btn.addEventListener("click", async ({target: {dataset}}) => {
-                            console.log(dataset.id);
-                            console.log("here");
                             try {
                                 await deleteEnrollment(dataset.id);
                                 alert("Eliminado correctamente");
